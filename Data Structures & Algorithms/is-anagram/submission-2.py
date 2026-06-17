@@ -1,0 +1,37 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if(len(s) != len(t)):
+            return False
+
+        # char_freq = [0] * 26
+        
+        freq = {}
+        # for char in s:
+        #     freq[char] = freq.get(char, 0) + 1
+
+        # for char in t:
+        #     freq[char] = freq.get(char, 0) - 1    
+
+        for i in range(len(s)):
+            s_idx = ord(s[i]) - ord('a')
+            t_idx = ord(t[i]) - ord('a')
+            freq[s_idx] = freq.get(s_idx, 0) + 1
+            freq[t_idx] = freq.get(t_idx, 0) - 1
+
+        # for char in s:
+        #     idx = ord(char) - ord('a')
+        #     char_freq[idx] = char_freq[idx] + 1
+
+        # for char in t:
+        #     idx = ord(char) - ord('a')
+        #     char_freq[idx] = char_freq[idx] - 1
+
+        for val in freq.values():
+            if val != 0:
+                return False
+
+        return True        
+
+
+
+        
